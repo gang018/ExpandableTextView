@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ExpandableTextView">
+        
+       <!-- Text which will be expanded by tapping on view -->
+       <attr name="textToExpand" format="string"/>
+       
+       <!-- Text size for expandable text -->
+       <attr name="textSize" format="dimension"/>
+       
+       <!-- Color for expandable text -->
+       <attr name="textColor" format="color"/>
+       
+       <!-- Minimum lines for text, must be more than zero -->
+       <attr name="linesCountWhenExpand" format="integer"/>
+       
+   </declare-styleable>
+</resources>

@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".TestActivity" >
+
+    <ru.gang018.expandabletextview.ui.ExpandableTextView
+        android:id="@+id/expandable_text_test"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        custom:linesCountWhenExpand="5"
+        custom:textColor="#0f0"
+        custom:textSize="20sp"/>
+
+</RelativeLayout>

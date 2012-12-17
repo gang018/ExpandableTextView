@@ -1,4 +1,5 @@
 package ru.gang018.expandabletextview.ui;
+import ru.gang018.expandabletextview.Logger;
 import ru.gang018.expandabletextview.R;
 import android.R.integer;
 import android.content.Context;
@@ -25,7 +26,7 @@ public class ExpandableTextView extends LinearLayout
 	/**
 	 * Min lines count when text is expanded
 	 */
-	private int mLinesCount = 0;
+	private int mLinesCount = DEFAULT_MIN_LINES_COUNT;
 	
 	/**
 	 * TextView which is showing the text
@@ -46,6 +47,9 @@ public class ExpandableTextView extends LinearLayout
 	{
 		super(context);
 		initViews();
+		
+		mText.setMaxLines(DEFAULT_MIN_LINES_COUNT);
+		Logger.i("text size is " + mText.getTextSize());
 	}
 
 	public ExpandableTextView(Context context, AttributeSet attrs) 
@@ -63,7 +67,7 @@ public class ExpandableTextView extends LinearLayout
 			final int param = ta.getColor(R.styleable.ExpandableTextView_textColor, Color.BLACK);
 			mText.setTextColor(param);
 			
-			final float dimen = ta.getDimension(R.styleable.ExpandableTextView_textSize, context.getResources().getDimension(R.dimen.expandable_text_size_default));
+			final float dimen = ta.getDimension(R.styleable.ExpandableTextView_textSize, mText.getTextSize());
 			mText.setTextSize(dimen);
 			
 			final String text = ta.getString(R.styleable.ExpandableTextView_textToExpand);
@@ -105,8 +109,6 @@ public class ExpandableTextView extends LinearLayout
 	
 	/**
 	 * Gets default animation for TextView with fading effect
-	 * @param from - {@link Float}
-	 * @param to - {@link Float}
 	 * @return - {@link Animation}
 	 */
 	private Animation getDefaultAnimation()
@@ -127,7 +129,7 @@ public class ExpandableTextView extends LinearLayout
 		super.onSizeChanged(w, h, oldw, oldh);
 		
 		if (mText.getAnimation() == null)
-		mText.setAnimation(getDefaultAnimation());
+			mText.setAnimation(getDefaultAnimation());
 
 		mText.getAnimation().start();
 	}

@@ -58,14 +58,13 @@ public class ExpandableTextView extends LinearLayout
 		try 
 		{
 			mLinesCount = ta.getInteger(R.styleable.ExpandableTextView_linesCountWhenExpand, DEFAULT_MIN_LINES_COUNT);
-			mText.setMinLines(mLinesCount);
 			mText.setMaxLines(mLinesCount);
 			
-			int param = ta.getColor(R.styleable.ExpandableTextView_textColor, Color.BLACK);
+			final int param = ta.getColor(R.styleable.ExpandableTextView_textColor, Color.BLACK);
 			mText.setTextColor(param);
 			
-			param = (int) ta.getDimension(R.styleable.ExpandableTextView_textSize, context.getResources().getDimension(R.dimen.expandable_text_size_default));
-			mText.setTextSize(param);
+			final float dimen = ta.getDimension(R.styleable.ExpandableTextView_textSize, context.getResources().getDimension(R.dimen.expandable_text_size_default));
+			mText.setTextSize(dimen);
 			
 			final String text = ta.getString(R.styleable.ExpandableTextView_textToExpand);
 			mText.setText(text);
